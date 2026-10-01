@@ -148,19 +148,17 @@ const SENATORS: RefItem[] = [
   { id: 'conspirator', name: 'Заговорщик', tag: '6 карт', effect: 'Одно из двух: положите 1 кубик в любую Палату или возьмите 2 Заговора, один оставьте лицом вниз, другой — наверх или под низ колоды.' },
 ]
 
-const UNKNOWN_RU = 'Русское название с карты не найдено — уточняется.'
-
 const CONSPIRACIES: RefItem[] = [
   { id: 'extortion', name: 'Вымогательство', nameEn: 'Extortion', effect: 'Заберите у соперника одно непостроенное Чудо в свой город + переместите 1 свой кубик в соседнюю Палату.' },
   { id: 'blackmail', name: 'Шантаж', nameEn: 'Blackmail', effect: 'Заберите половину монет соперника (с округлением вверх).' },
   { id: 'expropriation', name: 'Экспроприация', nameEn: 'Expropriation', effect: 'Сбросьте одно синее здание соперника + переместите кубик.' },
-  { id: 'swindle', name: 'Swindle', nameEn: 'Swindle', effect: 'Сбросьте одно жёлтое здание соперника.', note: UNKNOWN_RU },
-  { id: 'obscurantism', name: 'Obscurantism', nameEn: 'Obscurantism', effect: 'Выберите жетон Развития (с поля, у соперника или из коробки) и положите лицом вниз на эту карту — до конца игры им никто не пользуется.', note: UNKNOWN_RU },
+  { id: 'swindle', name: 'Афера', nameEn: 'Swindle', effect: 'Сбросьте одно жёлтое здание соперника + переместите кубик.' },
+  { id: 'obscurantism', name: 'Обскурантизм', nameEn: 'Obscurantism', effect: 'Выберите жетон Развития (с поля, у соперника или из коробки) и положите лицом вниз на эту карту — до конца игры им никто не пользуется.' },
   { id: 'coup', name: 'Переворот', nameEn: 'Coup', effect: '2 Щита.' },
-  { id: 'property_fraud', name: 'Property Fraud', nameEn: 'Property Fraud', effect: 'Возьмите здание из последнего ряда раскладки и бесплатно постройте (Сенаторов брать нельзя).', note: UNKNOWN_RU },
+  { id: 'property_fraud', name: 'Мошенничество с недвижимостью', nameEn: 'Property Fraud', effect: 'Возьмите здание из последнего ряда раскладки и бесплатно постройте (Сенаторов брать нельзя).' },
   { id: 'treason', name: 'Государственная измена', nameEn: 'Treason', effect: 'Втайне посмотрите карты, убранные при подготовке (Эпоха I — 3 карты Эпохи I; Эпоха II — 6 карт Эпох I–II; Эпоха III — 9 карт Эпох I–III), и бесплатно сыграйте одну.' },
-  { id: 'political_maneuver', name: 'Political Maneuver', nameEn: 'Political Maneuver', effect: 'Положите 1 кубик Влияния, уберите 1 кубик соперника и переместите 1 кубик.', note: UNKNOWN_RU },
-  { id: 'espionage', name: 'Espionage', nameEn: 'Espionage', effect: 'Втайне посмотрите жетоны Развития, убранные в начале игры, и сыграйте один.', note: UNKNOWN_RU },
+  { id: 'political_maneuver', name: 'Политический манёвр', nameEn: 'Political Maneuver', effect: 'Положите 1 кубик Влияния, уберите 1 кубик соперника и переместите 1 кубик.' },
+  { id: 'espionage', name: 'Шпионаж', nameEn: 'Espionage', effect: 'Втайне посмотрите жетоны Развития, убранные в начале игры, и сыграйте один.' },
   { id: 'turn_of_events', name: 'Поворот событий', nameEn: 'Turn of Events', effect: 'Сбросьте доступную карту раскладки, можно повторить ещё раз + переместите кубик. Жетоны с открывшихся карт берутся все.' },
   { id: 'embezzlement', name: 'Хищение', nameEn: 'Embezzlement', effect: 'Получите монет по числу своих кубиков в Сенате; соперник теряет монеты по числу своих кубиков.' },
   { id: 'foreclosure', name: 'Изъятие имущества', nameEn: 'Foreclosure', effect: 'Заберите у соперника одно коричневое или серое здание в свой город.' },
