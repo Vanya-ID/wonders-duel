@@ -4,10 +4,11 @@ import '@fontsource/forum/400.css'
 import './index.css'
 import { App } from './App'
 import { initAuth } from './services/auth'
-import { applyTheme, settingsStore } from './services/settings'
+import { applyAppearance, settingsStore } from './services/settings'
 import { startAutoSync } from './services/sync'
 
-applyTheme(settingsStore.get().theme)
+applyAppearance()
+settingsStore.subscribe(applyAppearance)
 initAuth()
 startAutoSync()
 

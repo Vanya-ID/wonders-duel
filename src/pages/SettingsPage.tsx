@@ -1,11 +1,13 @@
 import { type FormEvent, useState } from 'react'
+import { BACKGROUNDS, PALETTES } from '../data/appearance'
 import type { PlayerSlot } from '../domain/types'
 import { PLAYER_SLOTS } from '../domain/types'
 import { authStore, signInWithPassword, signOut, signUpWithPassword } from '../services/auth'
-import { applyTheme, settingsStore, type ThemeSetting, updateSettings } from '../services/settings'
+import { settingsStore, type ThemeSetting, updateSettings } from '../services/settings'
 import { useStore } from '../services/store'
 import { isSupabaseConfigured } from '../services/supabase'
 import { renamePlayers, syncNow, syncStore } from '../services/sync'
+import './SettingsPage.css'
 
 const THEMES: { id: ThemeSetting; label: string }[] = [
   { id: 'system', label: 'Как в системе' },
@@ -60,26 +62,61 @@ const PlayersSection = () => {
   )
 }
 
-const ThemeSection = () => {
+const AppearanceSection = () => {
   const settings = useStore(settingsStore)
 
   return (
     <div className="panel">
-      <h2>Тема</h2>
-      <div className="segmented" role="group" aria-label="Тема">
-        {THEMES.map((theme) => (
-          <button
-            key={theme.id}
-            type="button"
-            aria-pressed={settings.theme === theme.id}
-            onClick={() => {
-              updateSettings({ theme: theme.id })
-              applyTheme(theme.id)
-            }}
-          >
-            {theme.label}
-          </button>
-        ))}
+      <h2>Оформление</h2>
+      <p className="muted">Только для этого телефона.</p>
+      <div className="field">
+        <span>Цвета</span>
+        <div className="palette-grid" role="group" aria-label="Цветовая схема">
+          {PALETTES.map((palette) => (
+            <button
+              key={palette.id}
+              type="button"
+              className="palette-option"
+              data-palette={palette.id}
+              aria-pressed={settings.palette === palette.id}
+              onClick={() => updateSettings({ palette: palette.id })}
+            >
+              <span className="palette-preview" aria-hidden="true">
+                <span className="palette-header" />
+                <span className="palette-body">
+                  <span className="palette-accent" />
+                  <span className="palette-surface" />
+                </span>
+              </span>
+              <span className="palette-name">{palette.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="field">
+        <span>Тема</span>
+        <div className="segmented" role="group" aria-label="Тема">
+          {THEMES.map((theme) => (
+            <button key={theme.id} type="button" aria-pressed={settings.theme === theme.id} onClick={() => updateSettings({ theme: theme.id })}>
+              {theme.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="field">
+        <span>Фон</span>
+        <div className="segmented" role="group" aria-label="Фон">
+          {BACKGROUNDS.map((background) => (
+            <button
+              key={background.id}
+              type="button"
+              aria-pressed={settings.background === background.id}
+              onClick={() => updateSettings({ background: background.id })}
+            >
+              {background.label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -208,7 +245,7 @@ export const SettingsPage = () => {
   return (
     <div>
       <PlayersSection key={`${players.p1}|${players.p2}`} />
-      <ThemeSection />
+      <AppearanceSection />
       <AccountSection />
     </div>
   )

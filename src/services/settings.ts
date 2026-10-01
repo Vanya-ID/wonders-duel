@@ -1,3 +1,4 @@
+import type { BackgroundId, PaletteId } from '../data/appearance'
 import type { GameMode, PlayerSlot } from '../domain/types'
 import { createStore, newId } from './store'
 
@@ -9,6 +10,8 @@ export interface Settings {
   deviceSlot: PlayerSlot | null
   lastMode: GameMode
   theme: ThemeSetting
+  palette: PaletteId
+  background: BackgroundId
   deviceId: string
 }
 
@@ -19,6 +22,8 @@ export const settingsStore = createStore<Settings>(
     deviceSlot: null,
     lastMode: 'base',
     theme: 'system',
+    palette: 'papyrus',
+    background: 'none',
     deviceId: newId(),
   },
   'wonders-duel-settings',
@@ -28,12 +33,14 @@ export const updateSettings = (patch: Partial<Settings>): void => {
   settingsStore.update((prev) => ({ ...prev, ...patch }))
 }
 
-export const applyTheme = (theme: ThemeSetting): void => {
+export const applyAppearance = (): void => {
+  const { theme, palette, background } = settingsStore.get()
+  const root = document.documentElement
   if (theme === 'system') {
-    delete document.documentElement.dataset.theme
+    delete root.dataset.theme
   } else {
-    document.documentElement.dataset.theme = theme
+    root.dataset.theme = theme
   }
+  root.dataset.palette = palette
+  root.dataset.background = background
 }
-
-export const playerName = (slot: PlayerSlot): string => settingsStore.get().players[slot]

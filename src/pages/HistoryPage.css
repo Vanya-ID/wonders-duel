@@ -21,7 +21,7 @@
 }
 
 .scoreboard-side.leading .scoreboard-wins {
-  color: #f0c560;
+  color: var(--header-accent);
 }
 
 .scoreboard-sep {

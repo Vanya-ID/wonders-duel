@@ -16,6 +16,12 @@
         if (stored.theme === 'light' || stored.theme === 'dark') {
           document.documentElement.dataset.theme = stored.theme
         }
+        if (stored.palette) {
+          document.documentElement.dataset.palette = stored.palette
+        }
+        if (stored.background) {
+          document.documentElement.dataset.background = stored.background
+        }
       } catch (e) {}
     </script>
   </head>

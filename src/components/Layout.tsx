@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react'
 import { NavLink, Outlet } from 'react-router'
+import { settingsStore } from '../services/settings'
 import { useStore } from '../services/store'
 import { syncStore } from '../services/sync'
 import './Layout.css'
@@ -20,10 +22,25 @@ const SYNC_LABELS = {
 
 export const Layout = () => {
   const sync = useStore(syncStore)
+  const { palette, theme } = useStore(settingsStore)
+  const headerRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const syncThemeColor = () => {
+      const meta = document.querySelector('meta[name="theme-color"]')
+      if (headerRef.current && meta) {
+        meta.setAttribute('content', getComputedStyle(headerRef.current).backgroundColor)
+      }
+    }
+    syncThemeColor()
+    const media = window.matchMedia('(prefers-color-scheme: dark)')
+    media.addEventListener('change', syncThemeColor)
+    return () => media.removeEventListener('change', syncThemeColor)
+  }, [palette, theme])
 
   return (
     <div className="app">
-      <header className="app-header">
+      <header className="app-header" ref={headerRef}>
         <div className="app-header-inner">
           <span className="app-title">7 Чудес: Дуэль</span>
           <span className={`sync-dot sync-${sync.status}`} title={sync.error ?? SYNC_LABELS[sync.status]} />
