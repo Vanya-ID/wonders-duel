@@ -1,0 +1,190 @@
+.page-tabs {
+  margin-bottom: 14px;
+}
+
+.session-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.opponent-status {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 0.95rem;
+}
+
+.slot-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.slot-taken {
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.cancel-session {
+  margin-top: 4px;
+}
+
+.sheet-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.sheet-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1 1 150px;
+}
+
+.sheet-label .color-dot {
+  margin-top: 5px;
+}
+
+.sheet-label .muted {
+  font-size: 0.8rem;
+}
+
+.sheet-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sheet-row .segmented {
+  flex: 1 1 200px;
+}
+
+.option-sub {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.senate-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 220px;
+}
+
+.senate-chambers {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  flex: 1;
+}
+
+.senate-chamber {
+  min-height: 44px;
+  border-radius: 10px 10px 4px 4px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.senate-chamber[aria-pressed='true'] {
+  background: var(--senate);
+  border-color: var(--text-muted);
+  color: #1d160f;
+}
+
+.sheet-total {
+  margin: 14px 0;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.sheet-total strong {
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+}
+
+.reveal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.reveal-banner {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  text-align: center;
+  padding: 18px 12px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: var(--header-bg);
+  color: var(--header-text);
+  border: 2px solid var(--accent);
+  animation: reveal-in 0.5s ease-out;
+}
+
+.reveal-banner.draw {
+  border-color: var(--text-muted);
+}
+
+@keyframes reveal-in {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.reveal-note {
+  text-align: center;
+}
+
+.reveal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+}
+
+.reveal-table th,
+.reveal-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+}
+
+.reveal-table th:first-child,
+.reveal-table td:first-child {
+  text-align: left;
+}
+
+.reveal-table thead th {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.reveal-table tfoot td {
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-bottom: none;
+}
+
+.reveal-table .winner {
+  color: var(--accent-strong);
+}

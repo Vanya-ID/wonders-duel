@@ -1,0 +1,109 @@
+.age-layout {
+  margin: 0 0 12px;
+}
+
+.age-layout figcaption {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.age-rows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+
+.age-row {
+  display: flex;
+  gap: 4px;
+}
+
+.age-row + .age-row {
+  margin-top: -10px;
+}
+
+.age-card {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.age-card.up {
+  background: var(--surface);
+  border: 1.5px solid var(--accent);
+}
+
+.age-card.down {
+  background: var(--card-brown);
+  border: 1.5px solid var(--header-bg);
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.12);
+}
+
+.age-card.gap {
+  visibility: hidden;
+}
+
+.age-card.legend {
+  width: 14px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+.age-token {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  border: 1.5px solid #fff;
+}
+
+.age-token.mythology {
+  background: #7a4c9f;
+}
+
+.age-token.offering {
+  background: #b8392b;
+}
+
+.age-token.legend {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+.age-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.age-hint {
+  font-size: 0.82rem;
+  margin: 6px 0 0;
+}
+
+@media (max-width: 380px) {
+  .age-card {
+    width: 26px;
+    height: 35px;
+  }
+
+  .age-row {
+    gap: 3px;
+  }
+}

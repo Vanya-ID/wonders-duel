@@ -1,0 +1,61 @@
+.trade-row {
+  padding: 10px 0 10px 10px;
+  border-left: 4px solid var(--card-brown);
+  margin-bottom: 10px;
+}
+
+.trade-row.grey {
+  border-left-color: var(--card-grey);
+}
+
+.trade-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.trade-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.trade-inputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.8rem;
+}
+
+.trade-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.trade-check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+}
+
+.trade-decrees {
+  padding: 4px 0 8px;
+}
+
+.trade-total {
+  margin: 10px 0 12px;
+  font-size: 1.15rem;
+  text-align: right;
+}
+
+.trade-total strong {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+}
