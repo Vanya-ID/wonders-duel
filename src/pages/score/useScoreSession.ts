@@ -110,7 +110,12 @@ export const useScoreSession = () => {
         }
         return prev
       })
-    }, setConnected)
+    }, (isConnected) => {
+      setConnected(isConnected)
+      if (isConnected) {
+        void refresh()
+      }
+    })
 
     const onVisible = () => {
       if (document.visibilityState === 'visible') {
